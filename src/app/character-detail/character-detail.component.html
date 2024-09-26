@@ -1,0 +1,20 @@
+<div *ngIf="personaje" class="character-container">
+    <img [src]="personaje.image" alt="{{ personaje.name }}" />
+    <h2>{{ personaje.name }}</h2>
+    <p>{{ personaje.gender }}</p>
+
+    <div>
+        <ul class="episode-list">
+            <li *ngFor="let episodio of episodios">
+                Temporada {{ episodio.episode.split('E')[0].replace('S', '') }},
+                Episodio {{ episodio.episode.split('E')[1] }}: 
+                {{ episodio.name }}
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div *ngIf="!personaje" class="loading">
+    <h2>Cargando..</h2>
+</div>
+
